@@ -1,0 +1,14 @@
+{% extends './base.html '%}
+
+{% block content %}
+
+ <h2>This is musician form</h2>
+  
+ <form action="" method="POST">
+  {% csrf_token %}
+    
+      {{musician_form.as_p}}
+      <input type="submit" name="submit" value="Add" class="btn btn-primary btn-sm"> 
+ </form>
+ 
+{% endblock %}

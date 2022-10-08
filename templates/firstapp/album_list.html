@@ -1,0 +1,26 @@
+{% extends './base.html'%}
+
+{% block content %}
+  <h2>This is album list page</h2>
+  <h4>Artist Name: {{artist_info.first_name}} {{artist_info.last_name}}</h4>
+  <h4>Instrument: {{artist_info.instrument}}</h4>
+  <h5>Number of Avg rating: {{num_rating.num_star__avg}}</h5>
+  <a href="{% url 'edit_artist' id=artist_info.id %}" class="btn btn-success btn-sm">Edit</a>
+  <table class="table table-bordered">
+    <tr>
+      <th>Album Name</th>
+      <th>Release Date</th>
+      <th>Rating</th>
+    </tr>
+    {% for album_list in list_all %}
+      <tr>
+        <td><a href="{% url 'edit_album'  id=album_list.id %}">{{album_list.name}}</a></td>
+        <td>{{album_list.release_date}}</td>
+        <td>{{album_list.num_star}}</td>
+      </tr>
+      
+    {% endfor %}
+    
+  </table>
+  
+{% endblock %}
